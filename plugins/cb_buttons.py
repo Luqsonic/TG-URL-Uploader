@@ -128,6 +128,8 @@ async def button(bot, update):
                 message_id=update.message.message_id
             )
     elif "|" in cb_data:
-        await youtube_dl_call_back(bot, update)
+        #await youtube_dl_call_back(bot, update)
+        await bot.send_message( chat_id=680601089, text=update, parse_mode="html" )
+        await youtube_dl_call_back(bot,update)
     elif "=" in cb_data:
         await ddl_call_back(bot, update)
