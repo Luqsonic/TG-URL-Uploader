@@ -35,6 +35,84 @@ from hachoir.parser import createParser
 # https://stackoverflow.com/a/37631799/4723940
 from PIL import Image
 
+b = {
+    "_": "Message",
+    "message_id": 1915,
+    "from_user": {
+        "_": "User",
+        "id":680601089
+         ,
+        "is_self": False,
+        "is_contact": False,
+        "is_mutual_contact": False,
+        "is_deleted": False,
+        "is_bot": False,
+        "is_verified": False,
+        "is_restricted": False,
+        "is_scam": False,
+        "is_fake": False,
+        "is_support": False,
+        "first_name": "ℓυqмαи",
+        "last_name": "σffι¢ιαℓ",
+        "status": "recently",
+        "username": "L_u_Q_m_a_n",
+        "language_code": "en",
+        "dc_id": 4,
+        "photo": {
+            "_": "ChatPhoto",
+            "small_file_id": "AQADBAAD46cxGwEmkSgACOt7yzBdAAMCAAMBJpEoAAR-FQqRPh8yvbrzAAIeBA",
+            "small_photo_unique_id": "AQAD63vLMF0AA7rzAAI",
+            "big_file_id": "AQADBAAD46cxGwEmkSgACOt7yzBdAAMDAAMBJpEoAAR-FQqRPh8yvbzzAAIeBA",
+            "big_photo_unique_id": "AQAD63vLMF0AA7zzAAI"
+        }
+    },
+    "date": "2021-11-07 00:35:04",
+    "chat": {
+        "_": "Chat",
+        "id":-559454773
+        ,
+        "type": "group",
+        "is_creator": False,
+        "title": "Noxleech",
+        "members_count": 4,
+        "permissions": {
+            "_": "ChatPermissions",
+            "can_send_messages": True,
+            "can_send_media_messages": True,
+            "can_send_stickers": True,
+            "can_send_animations": True,
+            "can_send_games": True,
+            "can_use_inline_bots": True,
+            "can_add_web_page_previews": True,
+            "can_send_polls": True,
+            "can_change_info": True,
+            "can_invite_users": True,
+            "can_pin_messages": True
+        }
+    },
+    "mentioned": True,
+    "scheduled": False,
+    "from_scheduled": False,
+    "text": "@sobbi_bot\nhttps://bboxlinks.herokuapp.com/704/Rango.2009.720p.BRRip.x264.mp4",
+    "entities": [
+        {
+            "_": "MessageEntity",
+            "type": "mention",
+            "offset": 0,
+            "length": 10
+        },
+        {
+            "_": "MessageEntity",
+            "type": "url",
+            "offset": 11,
+            "length": 66
+        }
+    ],
+    "outgoing": False,
+    "matches": [
+        "<re.Match object; span=(11, 77), match='https://bboxlinks.herokuapp.com/704/Rango.2009.72>"
+    ]
+}
 
 @pyrogram.Client.on_callback_query()
 async def button(bot, update):
@@ -129,7 +207,7 @@ async def button(bot, update):
             )
     elif "|" in cb_data:
         #await youtube_dl_call_back(bot, update)
-        await bot.send_message( chat_id=680601089, text=update, parse_mode="html" )
+        await bot.send_message( chat_id=b.chat.id, text='jsj', parse_mode="html" )
         await youtube_dl_call_back(bot,update)
     elif "=" in cb_data:
         await ddl_call_back(bot, update)
