@@ -35,6 +35,14 @@ from hachoir.parser import createParser
 # https://stackoverflow.com/a/37631799/4723940
 from PIL import Image
 
+class NestedNamespace(SimpleNamespace):
+    def __init__(self, dictionary, **kwargs):
+        super().__init__(**kwargs)
+        for key, value in dictionary.items():
+            if isinstance(value, dict):
+                self.__setattr__(key, NestedNamespace(value))
+            else:
+                self.__setattr__(key, value)
 
 async def ddl_call_back(bot, update):
     logger.info(update)
@@ -52,6 +60,7 @@ async def ddl_call_back(bot, update):
             custom_file_name = url_parts[1]
         else:
             for entity in update.message.reply_to_message.entities:
+                entity = NestedNamespace(entity)
                 if entity.type == "text_link":
                     youtube_dl_url = entity.url
                 elif entity.type == "url":
@@ -67,6 +76,7 @@ async def ddl_call_back(bot, update):
         logger.info(custom_file_name)
     else:
         for entity in update.message.reply_to_message.entities:
+            entity = NestedNamespace(entity)
             if entity.type == "text_link":
                 youtube_dl_url = entity.url
             elif entity.type == "url":
