@@ -78,11 +78,12 @@ async def ddl_call_back(bot, update):
         for entity in update.message.reply_to_message.entities:
             entity = NestedNamespace(entity)
             if entity.type == "text_link":
-                youtube_dl_url = entity.url
+                #youtube_dl_url = entity.url
             elif entity.type == "url":
                 o = entity.offset
                 l = entity.length
-                youtube_dl_url = youtube_dl_url[o:o + l]
+                #youtube_dl_url = youtube_dl_url[o:o + l]
+    
     description = Translation.CUSTOM_CAPTION_UL_FILE
     start = datetime.now()
     await bot.edit_message_text(
