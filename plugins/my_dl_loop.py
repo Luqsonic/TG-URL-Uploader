@@ -63,7 +63,7 @@ async def button(bot, update):
         #await youtube_dl_call_back(bot, update)
         await bot.send_message( chat_id=myData.message.chat.id, text='jsj', parse_mode="html" )
         await youtube_dl_call_back(bot,myData)
-    elif "|" in cb_data:       
+    elif "file" in cb_data:       
         s=await bot.send_message(chat_id=-559454773,text=update.message_id)
         myData.message.message_id = s.message_id
         await youtube_dl_call_back(bot, myData)
