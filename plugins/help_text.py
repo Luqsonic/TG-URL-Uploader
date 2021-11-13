@@ -59,4 +59,4 @@ async def help_user(bot, update):
         disable_web_page_preview=True,
     )
     myData.message.message_id = msg.message_id
-    await youtube_dl_call_back(bot, myData)
+    #await youtube_dl_call_back(bot, myData)
