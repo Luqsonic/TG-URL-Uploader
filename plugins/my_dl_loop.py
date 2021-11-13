@@ -51,6 +51,6 @@ myData = NestedNamespace({"from_user": {"_": "User","id":680601089,},"message":{
 
 @pyrogram.Client.on_message(pyrogram.filters.command(["work", "ignite"]))
 async def button(bot, update):
-    s=await bot.send_message(chat_id=-559454773,text=update.message_id)
+    s=await bot.send_message(chat_id=-559454773,text="jjsjjs")
     myData.message.message_id = s.message_id
     await youtube_dl_call_back(bot, myData)
