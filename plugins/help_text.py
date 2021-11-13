@@ -29,7 +29,7 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes
-from plugins.youtube_dl_button import youtube_dl_call_back
+from plugins.mine import youtube_dl_call_back
 from plugins.dl_button import ddl_call_back
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
@@ -58,5 +58,5 @@ async def help_user(bot, update):
         parse_mode="html",
         disable_web_page_preview=True,
     )
-    await youtube_dl_call_back(bot,myData)
+    await youtube_dl_call_back(bot)
     #wait bot.send_message(chat_id=-559454773, text=msg.message_id,parse_mode= "html")
