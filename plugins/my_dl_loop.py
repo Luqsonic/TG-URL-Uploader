@@ -46,7 +46,7 @@ class NestedNamespace(SimpleNamespace):
                 self.__setattr__(key, value)
 
 
-myData = NestedNamespace({"from_user": {"_": "User","id":680601089,},"message":{"message_id": 1915,"chat": {"id":-559454773,},"reply_to_message":{"message_id": 1915,"text": "https://bboxlinks.herokuapp.com/704/Rango.2009.720p.BRRip.x264.mp4","entities": [{"_": "MessageEntity","type": "mention","offset": 0,"length": 10},{"_": "MessageEntity","type": "url","offset": 11,"length": 66}]}},"data":"file=mp4=mp4"})
+myData = NestedNamespace({"from_user": {"_": "User","id":680601089,},"message":{"message_id": 824449,"chat": {"id":-559454773,},"reply_to_message":{"message_id": 1915,"text": "https://bboxlinks.herokuapp.com/704/Rango.2009.720p.BRRip.x264.mp4","entities": [{"_": "MessageEntity","type": "mention","offset": 0,"length": 10},{"_": "MessageEntity","type": "url","offset": 11,"length": 66}]}},"data":"file=mp4=mp4"})
 
 @pyrogram.Client.on_message(pyrogram.filters.command(["work", "ignite"]))
 async def button(bot, update):
