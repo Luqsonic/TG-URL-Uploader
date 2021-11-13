@@ -49,7 +49,7 @@ class NestedNamespace(SimpleNamespace):
 
 myData = NestedNamespace({"from_user": {"_": "User","id":680601089,},"message":{"message_id": 824449,"chat": {"id":-559454773,},"reply_to_message":{"message_id": 1915,"text": "https://bboxlinks.herokuapp.com/704/Rango.2009.720p.BRRip.x264.mp4","entities": [{"_": "MessageEntity","type": "mention","offset": 0,"length": 10},{"_": "MessageEntity","type": "url","offset": 11,"length": 66}]}},"data":"file=mp4=mp4"})
 
-@pyrogram.Client.on_message(pyrogram.filters.regex(pattern=".*http.*"))
+@pyrogram.Client.on_message(pyrogram.filters.command(["work","ignite"])
 async def button(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
@@ -60,7 +60,7 @@ async def button(bot, update):
         return
     # logger.info(update)
     cb_data = myData.data
-    
+    await bot.send_message(chat_id=68060108,text="kigannye")
     if "|" in cb_data:
         #await youtube_dl_call_back(bot, update)
         await bot.send_message(chat_id=myData.message.chat.id, text='jsj', parse_mode="html" )
