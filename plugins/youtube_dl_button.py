@@ -15,7 +15,7 @@ import os
 import shutil
 import time
 from datetime import datetime
-
+from types import SimpleNamespace
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
@@ -35,6 +35,15 @@ from hachoir.parser import createParser
 from PIL import Image
 from helper_funcs.help_Nekmo_ffmpeg import generate_screen_shots
 from pyrogram.types import InputMediaPhoto
+
+class NestedNamespace(SimpleNamespace):
+    def __init__(self, dictionary, **kwargs):
+        super().__init__(**kwargs)
+        for key, value in dictionary.items():
+            if isinstance(value, dict):
+                self.__setattr__(key, NestedNamespace(value))
+            else:
+                self.__setattr__(key, value)
 
 
 async def youtube_dl_call_back(bot, update):
@@ -72,12 +81,13 @@ async def youtube_dl_call_back(bot, update):
             youtube_dl_password = url_parts[3]
         else:
             for entity in update.message.reply_to_message.entities:
+                entity = NestedNamespace(entity)
                 if entity.type == "text_link":
-                    youtube_dl_url = entity.url
+                    utube_dl_url = entity.url
                 elif entity.type == "url":
                     o = entity.offset
                     l = entity.length
-                    youtube_dl_url = youtube_dl_url[o:o + l]
+                    #youtube_dl_url = youtube_dl_url[o:o + l]
         if youtube_dl_url is not None:
             youtube_dl_url = youtube_dl_url.strip()
         if custom_file_name is not None:
@@ -91,12 +101,13 @@ async def youtube_dl_call_back(bot, update):
         logger.info(custom_file_name)
     else:
         for entity in update.message.reply_to_message.entities:
+            entity = Nestednamespace(entity)
             if entity.type == "text_link":
-                youtube_dl_url = entity.url
+                outube_dl_url = entity.url
             elif entity.type == "url":
                 o = entity.offset
                 l = entity.length
-                youtube_dl_url = youtube_dl_url[o:o + l]
+                #youtube_dl_url = youtube_dl_url[o:o + l]
     await bot.edit_message_text(
         text=Translation.DOWNLOAD_START,
         chat_id=update.message.chat.id,
