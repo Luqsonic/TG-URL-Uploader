@@ -14,6 +14,7 @@ import os
 import shutil
 import subprocess
 import time
+from types import SimpleNamespace
 
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
