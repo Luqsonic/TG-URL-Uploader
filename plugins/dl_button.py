@@ -16,7 +16,7 @@ import os
 import shutil
 import time
 from datetime import datetime
-
+from types import SimpleNamespace
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
