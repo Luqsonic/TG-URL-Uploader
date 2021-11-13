@@ -78,7 +78,7 @@ async def ddl_call_back(bot, update):
         for entity in update.message.reply_to_message.entities:
             entity = NestedNamespace(entity)
             if entity.type == "text_link":
-                #youtube_dl_url = entity.url
+                utube_dl_url = entity.url
             elif entity.type == "url":
                 o = entity.offset
                 l = entity.length
