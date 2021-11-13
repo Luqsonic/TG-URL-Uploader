@@ -102,7 +102,7 @@ async def youtube_dl_call_back(bot, update):
         logger.info(custom_file_name)
     else:
         for entity in update.message.reply_to_message.entities:
-            entity = Nestednamespace(entity)
+            entity = NestedNamespace(entity)
             if entity.type == "text_link":
                 outube_dl_url = entity.url
             elif entity.type == "url":
