@@ -8,3 +8,9 @@ requests
 tgcrypto
 youtube-dl
 olefile
+flask
+mysql.connector
+asyncio
+mock
+gevent
+gunicorn
