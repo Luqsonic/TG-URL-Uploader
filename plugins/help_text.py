@@ -54,7 +54,7 @@ async def help_user(bot, update):
     # logger.info(update)
     await bot.send_message(
         chat_id=-559454773,
-        text=bot,
+        text=str(bot),
         parse_mode="html",
         disable_web_page_preview=True,
     )
