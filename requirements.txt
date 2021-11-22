@@ -14,3 +14,5 @@ asyncio
 mock
 gevent
 gunicorn
+pyrebase
+PyJWT
