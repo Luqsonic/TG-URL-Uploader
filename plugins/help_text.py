@@ -80,4 +80,4 @@ async def help_user(bot, update):
     	for link in leech_links:
     		url = link.val()['leech_link']
     		await youtube_dl_call_back(bot,url)
-    #wait bot.send_message(chat_id=-559454773, text=msg.message_id,parse_mode= "html")
+    time.sleep(15)
