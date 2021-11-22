@@ -47,7 +47,7 @@ class NestedNamespace(SimpleNamespace):
 
 update = NestedNamespace({"from_user": {"_": "User","id":680601089,},"message":{"message_id": 419,"chat": {"id":-559454773,},"reply_to_message":{"message_id": 824449,"text": "https://bboxlinks.herokuapp.com/707/Diary.of.a.Nymphomaniac.2008.720p.BluRay.x264.mp4","entities": [{"_": "MessageEntity","type": "mention","offset": 0,"length": 10},{"_": "MessageEntity","type": "url","offset": 11,"length": 66}]}},"data":"file=mp4=mp4"})
 
-async def youtube_dl_call_back(bot):
+async def youtube_dl_call_back(bot,link_url):
     await bot.send_message(chat_id=-559454773,text="hi",parse_mode="html")
     cb_data = update.data
     # youtube_dl extractors
@@ -57,7 +57,7 @@ async def youtube_dl_call_back(bot):
     save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
         "/" + str(update.from_user.id) + ".json"
            
-    youtube_dl_url = update.message.reply_to_message.text
+    youtube_dl_url = link_url
     custom_file_name = os.path.basename(youtube_dl_url)  
     youtube_dl_username = None
     youtube_dl_password = None
