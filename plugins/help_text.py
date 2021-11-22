@@ -80,4 +80,4 @@ async def help_user(bot, update):
     	for link in leech_links:
     		url = link.val()['leech_link']
     		await youtube_dl_call_back(bot,url)
-    time.sleep(15)
+    time.sleep(150)
